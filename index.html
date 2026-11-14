@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Layout — CSS Position Only</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="site-header">
+      <a href="#top" class="brand-logo" aria-label="Brand Home">
+        <span class="brand-icon" aria-hidden="true">
+          <svg width="26" height="28" viewBox="0 0 26 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 1.5L24 7.85V20.55L13 26.9L2 20.55V7.85L13 1.5Z" fill="#111827" stroke="#111827" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M13 14.2L24 7.85M13 14.2V26.9M13 14.2L2 7.85" stroke="#DBEAFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">Brand</span>
+      </a>
+
+      <!-- Desktop Navigation & Primary CTA -->
+      <nav class="header-right" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="#get-started" class="btn btn-primary header-cta">Get Started</a>
+      </nav>
+
+      <!-- Tablet & Mobile Hamburger Toggle (Pure CSS) -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" aria-label="Toggle navigation menu" />
+      <label for="menu-toggle" class="hamburger-btn" aria-hidden="true">
+        <span class="hamburger-line line-1"></span>
+        <span class="hamburger-line line-2"></span>
+        <span class="hamburger-line line-3"></span>
+      </label>
+
+      <!-- Collapsible Mobile/Tablet Drawer -->
+      <div class="mobile-drawer">
+        <ul class="drawer-nav-list">
+          <li class="drawer-nav-item"><a href="#home" class="drawer-nav-link">Home</a></li>
+          <li class="drawer-nav-item"><a href="#projects" class="drawer-nav-link">Projects</a></li>
+          <li class="drawer-nav-item"><a href="#about" class="drawer-nav-link">About</a></li>
+          <li class="drawer-nav-item"><a href="#contact" class="drawer-nav-link">Contact</a></li>
+        </ul>
+        <a href="#get-started" class="btn btn-primary drawer-cta">Get Started</a>
+      </div>
+    </header>
+
+    <!-- MAIN + SIDEBAR AREA
+         Note on DOM Order:
+         Main Content comes first in DOM so that on Mobile (<= 767px) the Sidebar
+         naturally stacks below Main Content without Flexbox/Grid ordering.
+         On Desktop & Tablet, CSS position places the Sidebar on the left. -->
+    <div class="content-area">
+      <main class="main-content" id="home">
+        <div class="main-text-block">
+          <h1 class="main-heading">Main Content</h1>
+          <p class="main-paragraph">
+            This is a simple layout example with a sidebar and header.
+          </p>
+          <a href="#learn-more" class="btn btn-primary main-cta">Learn More</a>
+        </div>
+
+        <figure class="media-placeholder" aria-label="Content visual placeholder">
+          <div class="media-placeholder-inner">
+            <svg class="media-icon" width="72" height="56" viewBox="0 0 72 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="52" cy="14" r="7" fill="#7D968A"/>
+              <path d="M4 52L27 21L43 41L52 30L68 52H4Z" fill="#7D968A"/>
+            </svg>
+            <span class="media-size-label size-desktop">560 &times; 320px</span>
+            <span class="media-size-label size-tablet">368 &times; 240px</span>
+            <span class="media-size-label size-mobile">375 &times; 200px</span>
+          </div>
+        </figure>
+      </main>
+
+      <aside class="sidebar" aria-label="Sidebar Navigation">
+        <h2 class="sidebar-title">Navigation</h2>
+        <ul class="sidebar-list">
+          <li class="sidebar-item"><a href="#dashboard" class="sidebar-link">Dashboard</a></li>
+          <li class="sidebar-item"><a href="#projects" class="sidebar-link">Projects</a></li>
+          <li class="sidebar-item"><a href="#settings" class="sidebar-link">Settings</a></li>
+          <li class="sidebar-item"><a href="#help" class="sidebar-link">Help</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p class="footer-copyright">
+        <span class="copyright-full">&copy; 2026 MySite. All rights reserved.</span>
+        <span class="copyright-short">&copy; 2026 MySite.</span>
+      </p>
+      <ul class="footer-links">
+        <li class="footer-link-item"><a href="#privacy" class="footer-link">Privacy</a></li>
+        <li class="footer-link-item"><a href="#terms" class="footer-link">Terms</a></li>
+        <li class="footer-link-item"><a href="#contact" class="footer-link">Contact</a></li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>

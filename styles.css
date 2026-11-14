@@ -1,0 +1,622 @@
+/* ==========================================================================
+   Design Tokens & Global Reset
+   Strict Constraint: Built exclusively with CSS position & box-model properties.
+   ========================================================================== */
+:root {
+  --color-header-bg: #DBEAFE;
+  --color-sidebar-bg: #E9D5FF;
+  --color-main-bg: #D1FAE5;
+  --color-footer-bg: #FED7AA;
+  --color-primary: #1D4ED8;
+  --color-primary-hover: #1E40AF;
+  --color-text-primary: #111827;
+  --color-text-secondary: #1F2937;
+  --color-media-bg: #B7DEC9;
+  --color-white: #FFFFFF;
+
+  --font-family-base: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --radius-base: 8px;
+  --block-gap: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  background-color: #F8FAFC;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  padding: 12px 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   Main Container (Desktop 1440px Default)
+   ========================================================================== */
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Header (Height: 80px)
+   ========================================================================== */
+.site-header {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background-color: var(--color-header-bg);
+  border: 1px solid #93C5FD;
+  border-radius: var(--radius-base);
+  margin-bottom: var(--block-gap);
+  z-index: 50;
+}
+
+.brand-logo {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  line-height: 1;
+}
+
+.brand-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.brand-text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.header-right {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+
+.nav-list {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 28px;
+}
+
+.nav-item {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 24px;
+}
+
+.nav-item:first-child {
+  margin-left: 0;
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 12px 24px;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Hamburger & Drawer Hidden on Desktop */
+.menu-toggle-checkbox,
+.hamburger-btn,
+.mobile-drawer {
+  display: none;
+}
+
+/* ==========================================================================
+   Content Area: Positioned Sidebar (280px) + Main Content (1160px)
+   ========================================================================== */
+.content-area {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 184px);
+  margin-bottom: var(--block-gap);
+}
+
+/* Sidebar pinned left via position: absolute */
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background-color: var(--color-sidebar-bg);
+  border-radius: var(--radius-base);
+  padding: 32px 24px;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+}
+
+.sidebar-item {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.sidebar-item:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-link {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  padding: 4px 0;
+  transition: color 0.15s ease;
+}
+
+.sidebar-link:hover {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* Main Content offset by 280px sidebar + 8px gap = 1152px inner / 1160px column */
+.main-content {
+  position: relative;
+  margin-left: 288px;
+  min-height: calc(100vh - 184px);
+  background-color: var(--color-main-bg);
+  border-radius: var(--radius-base);
+  padding: 32px 32px;
+}
+
+.main-text-block {
+  position: relative;
+  max-width: 440px;
+  padding-top: 84px;
+}
+
+.main-heading {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.main-paragraph {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-bottom: 28px;
+}
+
+.main-cta {
+  padding: 13px 36px;
+}
+
+/* Desktop Right-Aligned Image Placeholder (560 x 320px) */
+.media-placeholder {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 560px;
+  height: 320px;
+  background-color: var(--color-media-bg);
+  border-radius: var(--radius-base);
+}
+
+.media-placeholder-inner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.media-icon {
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+.media-size-label {
+  display: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.size-desktop {
+  display: block;
+}
+
+/* ==========================================================================
+   Footer (Height: 64px)
+   ========================================================================== */
+.site-footer {
+  position: relative;
+  width: 100%;
+  height: 64px;
+  background-color: var(--color-footer-bg);
+  border-radius: var(--radius-base);
+}
+
+.footer-copyright {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+
+.copyright-short {
+  display: none;
+}
+
+.footer-links {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+
+.footer-link-item {
+  display: inline-block;
+  margin-left: 24px;
+}
+
+.footer-link-item:first-child {
+  margin-left: 0;
+}
+
+.footer-link {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Intermediate Desktop Scaling (1025px - 1340px) so 560px media never overlaps text
+   ========================================================================== */
+@media (max-width: 1340px) and (min-width: 1025px) {
+  .media-placeholder {
+    width: 420px;
+    height: 260px;
+  }
+
+  .main-text-block {
+    max-width: 340px;
+  }
+}
+
+/* ==========================================================================
+   Tablet Breakpoint (max-width: 1024px — Target: 768px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .page-wrapper {
+    max-width: 768px;
+  }
+
+  .site-header {
+    height: 64px;
+  }
+
+  .brand-logo {
+    left: 16px;
+  }
+
+  /* Hide desktop links & CTA; show hamburger icon */
+  .header-right {
+    display: none;
+  }
+
+  .hamburger-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 32px;
+    height: 28px;
+    cursor: pointer;
+  }
+
+  .hamburger-line {
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    height: 3px;
+    background-color: var(--color-text-primary);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .line-1 {
+    top: 4px;
+  }
+
+  .line-2 {
+    top: 12px;
+  }
+
+  .line-3 {
+    top: 20px;
+  }
+
+  /* Animate Hamburger to X when toggled */
+  .menu-toggle-checkbox:checked + .hamburger-btn .line-1 {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle-checkbox:checked + .hamburger-btn .line-2 {
+    opacity: 0;
+  }
+
+  .menu-toggle-checkbox:checked + .hamburger-btn .line-3 {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Dropdown Drawer containing Nav Links & Collapsed Action Button */
+  .mobile-drawer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 6px;
+    background-color: var(--color-header-bg);
+    border: 1px solid #93C5FD;
+    border-radius: var(--radius-base);
+    padding: 16px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+    z-index: 100;
+  }
+
+  .menu-toggle-checkbox:checked ~ .mobile-drawer {
+    display: block;
+  }
+
+  .drawer-nav-item {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .drawer-nav-link {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 4px 0;
+  }
+
+  .drawer-cta {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  /* Tablet Sidebar: 200px */
+  .sidebar {
+    width: 200px;
+    padding: 28px 16px;
+  }
+
+  /* Tablet Main Content: 568px remaining width (200px + 8px gap + 560px) */
+  .main-content {
+    margin-left: 208px;
+    padding: 28px 20px;
+  }
+
+  .main-text-block {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .main-heading {
+    font-size: 30px;
+  }
+
+  .main-cta {
+    padding: 12px 32px;
+  }
+
+  /* Image placeholder moves into normal stacked flow below CTA */
+  .media-placeholder {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    max-width: 368px;
+    height: 240px;
+    margin-top: 24px;
+  }
+
+  .size-desktop {
+    display: none;
+  }
+
+  .size-tablet {
+    display: block;
+  }
+
+  .footer-copyright {
+    left: 16px;
+  }
+
+  .footer-links {
+    right: 16px;
+  }
+
+  .footer-link-item {
+    margin-left: 16px;
+  }
+
+  .copyright-full {
+    display: none;
+  }
+
+  .copyright-short {
+    display: inline;
+  }
+}
+
+/* ==========================================================================
+   Mobile Breakpoint (max-width: 767.98px — Target: 375px)
+   Note: Using 767.98px ensures Tablet (768px) displays cleanly at exact 768px,
+   and Mobile stacks below 768px down to 375px.
+   ========================================================================== */
+@media (max-width: 767.98px) {
+  body {
+    padding: 8px;
+  }
+
+  .page-wrapper {
+    max-width: 375px;
+  }
+
+  .site-header {
+    height: 56px;
+  }
+
+  .content-area {
+    min-height: auto;
+  }
+
+  /* Main Content takes full width first in DOM */
+  .main-content {
+    position: relative;
+    margin-left: 0;
+    width: 100%;
+    min-height: auto;
+    padding: 24px 16px;
+  }
+
+  .main-heading {
+    font-size: 28px;
+  }
+
+  .main-cta {
+    display: block;
+    width: 100%;
+  }
+
+  .media-placeholder {
+    max-width: 100%;
+    height: 200px;
+    margin-top: 16px;
+  }
+
+  .size-tablet {
+    display: none;
+  }
+
+  .size-mobile {
+    display: block;
+  }
+
+  /* Sidebar switches from position: absolute to position: relative,
+     naturally stacking below Main Content in DOM order */
+  .sidebar {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: var(--block-gap);
+    padding: 20px 16px;
+  }
+
+  .sidebar-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-item {
+    margin-bottom: 8px;
+  }
+
+  /* Footer stacks vertically on mobile */
+  .site-footer {
+    height: auto;
+    padding: 14px 16px;
+  }
+
+  .footer-copyright {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .footer-links {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    display: block;
+  }
+}
